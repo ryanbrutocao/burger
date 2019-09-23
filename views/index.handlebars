@@ -1,38 +1,61 @@
-<h1>Burgers!</h1>
+<img src="/assets/images/burger.png" alt="burger">
+<h1>Eat-Da-Burgers!</h1>
 
-<h2>Burgers that are not devoured!</h2>
+<div class="row">
+<div class="col-6">
+  <div class="leftHalf">
+    {{!-- <h2 class="devoured">Burgers that are not devoured!</h2> --}}
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
+    <ul>
+      {{#each burgers}}
+      {{#unless devoured}}
       {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+      {{/unless}}
+      {{/each}}
+    </ul>
 
-<h2>Burgers that are devoured!</h2>
+  </div>
+</div>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
+<div class="col-6">
+
+    <div class="rightHalf">
+
+      {{!-- <h2 class="notDevoured">Burgers that are devoured!</h2> --}}
+
+      <div>
+        {{#each burgers}}
+        {{#if devoured}}
         {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
+        {{/if}}
+        {{/each}}
+      </div>
+    </div>
+</div>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
+</div>
 
-  <div class="form-group">
-    <label for="burgerNam">Burger Name:</label>
-    <input type="text" id="burgerNam" name="burger_name">
-  </div>
 
-  <div class="form-group">
-    <label for="devoured">Hungry?</label><br>
-    <input type="radio" name="devoured" value="0" checked> Hungry!<br>
-    <input type="radio" name="devoured" value="1"> Devoured!
-  </div>
 
-  <button type="submit">Add Burger</button>
-</form>
+<div class="addBurger">
+  <h2>Add a Burger</h2>
+  <form class="create-form">
+
+    <div class="form-group">
+      {{!-- <label for="burgerNam">Burger Name:</label> --}}
+      <input type="text" id="burgerNam" name="burger_name">
+      <div class="addBurger">
+        <br>
+        <button type="submit">Add Burger</button>
+        <br>
+        Enter a burger you want to eat. Click the 'Add Burger' button
+      </div>
+    </div>
+  </form>
+</div>
+
+{{!-- <div class="form-group">
+  <label for="devoured">Hungry?</label><br>
+  <input type="radio" name="devoured" value="0" checked> Hungry!<br>
+  <input type="radio" name="devoured" value="1"> Devoured!
+</div> --}}
